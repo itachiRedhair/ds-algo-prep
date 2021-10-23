@@ -20,8 +20,18 @@
 
 // Recursion
 function fib(n) {
+  const memo = {};
+
+  return fib_memo(n, memo);
+}
+
+function fib_memo(n, memo) {
   if (n === 0 || n === 1) {
     return n;
+  }
+
+  if (memo[n]) {
+    return memo[n];
   }
 
   return fib(n - 1) + fib(n - 2);
